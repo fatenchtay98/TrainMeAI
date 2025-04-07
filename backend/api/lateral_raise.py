@@ -80,16 +80,6 @@ async def analyze_lateral_frame(payload: FramePayload):
 
         processed_frame, _ = processor.process(frame_rgb, pose)
 
-        cv2.putText(
-            processed_frame,
-            f"Reps: {processor.rep_count}",
-            (50, 50),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            1.0,
-            (0, 255, 0),
-            2
-        )
-
         processed_bgr = processed_frame[..., ::-1]
         success, buffer = cv2.imencode('.jpg', processed_bgr)
         if not success:

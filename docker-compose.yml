@@ -17,3 +17,6 @@ services:
     container_name: streamlit-frontend
     depends_on:
       - backend
+    devices:
+      - "/dev/video0:/dev/video0"
+    privileged: true   
